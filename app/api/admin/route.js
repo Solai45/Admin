@@ -35,7 +35,7 @@ export async function GET() {
   try {
     await connectDB();
 
-    const users = await User.find().select("-password"); // hide password
+    const users = await User.find();
 
     return new Response(JSON.stringify(users), {
       status: 200,
