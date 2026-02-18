@@ -37,7 +37,14 @@ export async function GET() {
 
     const users = await User.find().select("-password"); // hide password
 
-    return Response.json(users);
+    return new Response(JSON.stringify(users), {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // ✅ allow all
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });
   } catch (error) {
     return Response.json({ message: "Error fetching users" }, { status: 500 });
   }
