@@ -25,7 +25,6 @@ export default function EditUser({
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-
   const router = useRouter();
 
   const handleChange = (
